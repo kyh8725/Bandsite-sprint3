@@ -1,0 +1,496 @@
+.hero {
+  background-image: url("../../assets/Images/hero-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 183px;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  box-shadow: inset 0 0 0 2000px rgba(50, 50, 50, 0.5);
+  &__text {
+    font-family: "avenir-bold";
+    margin: 0;
+    padding: 0;
+    flex: 0.677;
+    color: $white;
+    @include header-m;
+    padding-left: 1rem;
+  }
+}
+.hero-show {
+  @extend .hero;
+  display: block;
+  background-image: url("../../assets/Images/hero-image-neon.jpg");
+  height: 29.5rem;
+  align-items: flex-start;
+  &__text-iframe {
+    padding: 0 1rem;
+  }
+  &__iframe {
+    width: 288px;
+    height: 100px;
+    font-size: 0;
+    line-height: 0;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px 5px 5px 5px;
+  }
+  &__text {
+    font-family: "avenir-bold";
+    margin: 0;
+    padding: 4rem 0;
+    color: $white;
+    @include header;
+    span {
+      font-size: 1rem;
+      font-family: "avenir-demi";
+      display: block;
+      line-height: 2rem;
+    }
+  }
+}
+.contents {
+  padding: 2rem 1rem 2.5rem 1rem;
+  margin: 0;
+
+  &__title {
+    font-family: "avenir-bold";
+    margin: 0;
+    padding: 0;
+    @include header-m;
+  }
+  &__image {
+    padding: 1.5rem 0;
+    margin: 0;
+    font-size: 0;
+    line-height: 0;
+    text-align: center;
+  }
+  &__image img {
+    width: 100%;
+  }
+  &__header {
+    font-family: "avenir-med";
+    margin: 0;
+  }
+  &__musician {
+    font-family: "avenir-med";
+    @include sub-header-m;
+    padding: 2rem 0 2.5rem 0;
+    margin: 0;
+  }
+  &__group {
+    font-family: "avenir-med";
+    padding: 0;
+    margin: 0;
+  }
+  &__article-wrapper {
+    font-family: "avenir-light";
+    // @include labels-m does not match mock up
+    font-size: 0.765rem;
+    line-height: 1.2rem;
+  }
+  &__article-first {
+    padding: 1.5rem 0;
+  }
+}
+
+.photo {
+  background-color: $alabaster;
+  padding: 2rem 1rem;
+  margin: 0;
+
+  &__title {
+    font-family: "avenir-bold";
+    margin: 0;
+    padding-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  &__single img {
+    filter: grayscale(100%);
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+
+  &__single {
+    margin: 0 0 1rem 0;
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.conv {
+  padding: 2rem 1rem 1rem 1rem;
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__divider {
+    border-bottom: 1px solid $mercury;
+    margin: 1.5rem 0;
+  }
+  &__title {
+    font-family: "avenir-bold";
+    @include header-m;
+    padding-bottom: 2.5rem;
+  }
+  &__join {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  &__join-left {
+    transform: translateY(1.2rem);
+    font-size: 0;
+    line-height: 0;
+    img {
+      width: 3rem;
+      border-radius: 50%;
+    }
+  }
+  &__join-right {
+    width: 100%;
+    padding-left: 1rem;
+    &-name,
+    &-comment {
+      font-size: 0.8rem;
+      font-family: "avenir-demi";
+      color: $silver;
+    }
+    &-input,
+    &-text {
+      @include paragraph-m;
+      padding: 0.5rem;
+      margin: 0.3rem 0 1rem 0;
+      border: 1px solid $silver;
+      border-radius: 4px;
+      background-color: $alabaster;
+      width: 100%;
+      &:focus {
+        border-width: 3px;
+        border-color: black;
+      }
+    }
+    &-input {
+      height: 3rem;
+    }
+    &-text {
+      height: 5.75rem;
+    }
+  }
+
+  // comment section
+
+  #__comment-form {
+    width: 100%;
+  }
+  &__comment {
+    display: flex;
+  }
+  &__comment-left {
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+    img {
+      position: relative;
+      transform: translateY(0.5rem);
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+    }
+  }
+  &__comment-right {
+    width: 100%;
+    padding-left: 1rem;
+    @include sub-header-m;
+  }
+  &__comment-right-top {
+    display: flex;
+    justify-content: space-between;
+    @include sub-header;
+    margin-bottom: 1rem;
+  }
+  &__comment-right-top-name {
+    font-size: 0.9rem;
+    font-family: "avenir-demi";
+  }
+  &__comment-right-top-date {
+    font-size: 0.9rem;
+    color: $silver;
+  }
+  &__comment-right-top-paragraph {
+    font-size: 0.875rem;
+  }
+}
+
+//tablet mode 768px wide
+@include small {
+  .hero {
+    height: 400px;
+    margin: 0;
+    padding: 0;
+    box-shadow: inset 0 0 0 2000px rgba(50, 50, 50, 0.5);
+    &__text {
+      font-size: 3.5rem;
+      line-height: 5rem;
+      font-family: "avenir-bold";
+      margin-left: 1.5rem;
+      padding: 0;
+    }
+  }
+  .hero-show {
+    height: 670px;
+    &__text-iframe {
+      padding: 0 1.5rem;
+    }
+    &__text {
+      font-family: "avenir-bold";
+      padding: 6rem 8rem 3rem 0;
+      color: $white;
+      @include hero-header;
+      line-height: 5rem;
+      font-size: 3.875rem;
+      span {
+        font-size: 1.5rem;
+        font-family: "avenir-bold";
+        display: block;
+        line-height: 4rem;
+      }
+    }
+    &__iframe {
+      width: 436px;
+      height: 146px;
+      font-size: 0;
+      line-height: 0;
+    }
+  }
+  .contents {
+    padding: 2rem 1.5rem;
+    margin: 0;
+
+    &__title {
+      font-family: "avenir-bold";
+      font-size: 2.5rem;
+      padding-bottom: 2rem;
+    }
+    &__header {
+      font-family: "avenir-bold";
+      font-size: 1.5rem;
+      line-height: 2.25rem;
+      padding-top: 2rem;
+    }
+    &__image {
+      padding: 0;
+      img {
+        width: 100%;
+      }
+    }
+    &__musician {
+      font-family: "avenir-med";
+      font-size: 1rem;
+    }
+    &__group {
+      font-family: "avenir-bold";
+      font-size: 1.5rem;
+    }
+    &__article-wrapper {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      font-family: "avenir-light";
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+    }
+    &__article-first {
+      padding-bottom: 0;
+    }
+    &__article-second {
+      padding-left: 1.5rem;
+      padding-top: 1.5rem;
+    }
+  }
+  .photo {
+    background-color: $alabaster;
+    padding: 2.5rem 0 0 0;
+    margin: 0;
+    &__title {
+      font-family: "avenir-bold";
+      margin: 0;
+      padding: 0 1.5rem 1rem 1.5rem;
+      font-size: 2rem;
+    }
+    &__wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      flex: 1;
+      padding: 1.5rem;
+    }
+    &__single {
+      margin: 0 0 1.5rem 0;
+      font-size: 0;
+      line-height: 0;
+      width: 31.2%;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .conv {
+    padding: 1.5rem;
+    &__button {
+      margin: 0;
+      width: 10rem;
+      float: right;
+    }
+    &__divider {
+      margin: 1.5rem 6.25rem;
+    }
+    &__title {
+      @include header;
+    }
+    &__join {
+      justify-content: space-between;
+      margin: 0 6.25rem;
+      &-right {
+        flex: 1;
+      }
+    }
+    &__comment {
+      margin: 0 6.25rem;
+      &-left {
+        flex: 0.1;
+      }
+      &-right-top {
+        margin: 0;
+        justify-content: flex-start;
+        &-name {
+          padding-right: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+//desktop mode 1440px wide
+@include large {
+  .hero {
+    height: 670px;
+    &__text {
+      margin: 0;
+      padding: 0;
+      flex: 0.4;
+      font-size: 3.75rem;
+      line-height: 5rem;
+      font-family: "avenir-bold";
+      margin-left: 11.25rem;
+    }
+  }
+  .hero-show {
+    height: 670px;
+    justify-content: space-between;
+    &__text-iframe {
+      display: flex;
+      align-items: flex-end;
+      flex: 1;
+      padding: 0 11.25rem;
+    }
+    &__text {
+      flex: 0.57;
+      padding: 10rem 4rem 0 0;
+      height: 100%;
+      font-family: "avenir-bold";
+      color: $white;
+      font-size: 3.8rem;
+      line-height: 5rem;
+      span {
+        font-size: 1.5rem;
+        line-height: 4rem;
+      }
+    }
+    &__iframe {
+      height: 146px;
+      flex: 0.43;
+      margin-bottom: 1rem;
+    }
+  }
+  .contents {
+    padding: 3rem 11.25rem;
+    &__title {
+      padding-bottom: 3rem;
+    }
+    &__image {
+      padding: 0 5.75rem;
+      font-size: 0;
+      line-height: 0;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &__header {
+      padding: 3rem 5.75rem 2.5rem 5.75rem;
+    }
+    &__musician {
+      padding: 0rem 5.75rem;
+    }
+    &__group {
+      padding: 3.5rem 5.75rem 0rem 5.75rem;
+    }
+    &__article-wrapper {
+      padding: 0 5.75rem;
+    }
+    &__article-first {
+      padding-top: 2rem;
+      padding-bottom: 0;
+    }
+    &__article-second {
+      padding-top: 2rem;
+      padding-left: 2.5rem;
+    }
+  }
+  .photo {
+    padding: 3rem 11.25rem 1rem 11.25rem;
+    &__title {
+      padding: 0 0 4rem 0;
+    }
+    &__wrapper {
+      padding: 0;
+    }
+    &__single {
+      font-size: 0;
+      line-height: 0;
+      width: 31.9%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .conv {
+    padding: 3rem 22.25rem 1rem 22.25rem;
+    &__title {
+      padding-bottom: 3.5rem;
+    }
+    &__join-right {
+      padding-left: 1.25rem;
+    }
+    &-input,
+    &-text {
+      padding: 1rem;
+    }
+  }
+}

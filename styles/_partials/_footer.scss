@@ -1,0 +1,121 @@
+.footer {
+  background-color: $black;
+  color: $white;
+  padding: 2rem 0.5rem;
+  line-height: 1.2rem;
+  font-size: 0.8rem;
+  font-family: "avenir-thin";
+  a:hover {
+    color: $brainflix-blue;
+  }
+  &__header {
+    margin: 0;
+    padding: 1rem 0;
+    font-size: 2.5rem;
+    font-family: "avenir-bold";
+  }
+  &__name {
+    margin: 0;
+    font-size: 0.9rem;
+    font-family: "avenir-med";
+  }
+  &__email {
+    margin-bottom: 1.5rem;
+    &:hover {
+      color: $brainflix-blue;
+    }
+  }
+  &__icon-wrapper {
+    padding: 1.5rem 1rem;
+    display: flex;
+  }
+  &__icon {
+    width: 3.375rem;
+  }
+  &__logo {
+    display: none;
+  }
+  &__copyright span {
+    display: block;
+  }
+}
+
+@include small {
+  .footer {
+    padding: 2rem 1.5rem 2rem 1.5rem;
+
+    &__header-wrap {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 2rem;
+    }
+    &__header {
+      font-size: 2rem;
+      flex: 0.45;
+    }
+    &__icon-wrapper {
+      flex: 0.55;
+    }
+    &__logo {
+      display: inline-block;
+      padding-top: 1rem;
+      text-align: right;
+      width: 7.25rem;
+    }
+    &__info-wrapper {
+      display: flex;
+      flex: 1;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    &__info {
+      flex: 0.3;
+    }
+    &__copyright span {
+      display: inline-block;
+    }
+  }
+}
+
+@include large {
+  .footer {
+    padding: 3rem 11.25rem;
+    &__header {
+      padding-right: 3rem;
+    }
+    &__header-wrap {
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    &__icon-wrapper {
+      padding-right: 40%;
+    }
+    &__logo {
+      padding: 0;
+      width: 7.5rem;
+      height: 1.5rem;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &__info-wrapper {
+      display: flex;
+      justify-content: flex-start;
+    }
+    &__info {
+      flex: 0.25;
+    }
+    &__address {
+      margin: 1.5rem 0;
+    }
+    &__email {
+      margin: 0;
+    }
+    &__copyright {
+      margin: 2.5rem 0;
+    }
+  }
+}

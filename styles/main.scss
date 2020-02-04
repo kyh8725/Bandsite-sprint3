@@ -1,0 +1,20 @@
+@import "./_partials/fonts";
+@import "./_partials/colors";
+@import "./_partials/breakpoints";
+@import "./_partials/typography";
+@import "./_partials/button";
+@import "./_partials/header";
+@import "./_partials/footer";
+@import "./_partials/contents";
+@import "./_partials/show";
+
+body{
+    font-family:'avenir';
+    box-sizing:border-box;
+    margin:0;
+}
+*,
+*::before, 
+*::after{
+    box-sizing: inherit;
+}

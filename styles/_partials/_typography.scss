@@ -1,0 +1,56 @@
+/*
+to make the site more closely resemble the mockup
+different values were used where possible
+becuase using this mixin values does not make my site
+match the mockup image.
+*/
+
+@mixin hero-header{
+    font-size:60px;
+    line-height:68px;
+}
+@mixin header{
+    font-size: 36px;
+    line-height: 44px;
+}
+@mixin header-2{
+    font-size: 24px;
+    line-height: 32px;
+}
+@mixin sub-header {
+    font-size: 16px ;
+    line-height: 24px ;
+}
+@mixin paragraph {
+    font-size: 14px;
+    line-height: 22px;
+}
+@mixin lists {
+    font-size: 14px ;
+    line-height: 20px;
+}
+@mixin labels {
+    font-size:12px ;
+    line-height: 20px;
+}
+
+@mixin header-m {
+    font-size: 24px;
+    line-height: 32px;
+}
+@mixin sub-header-m {
+    font-size: 14px;
+    line-height: 22px;
+}
+@mixin paragraph-m {
+    font-size: 13px;
+    line-height: 18px;
+}
+@mixin lists-m{
+    font-size: 13px;
+    line-height: 18px;
+}
+@mixin labels-m{
+    font-size: 12px;
+    line-height: 20px;
+}

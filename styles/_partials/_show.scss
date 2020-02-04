@@ -1,0 +1,142 @@
+.content {
+  padding: 2rem 1rem 3rem 1rem;
+  * {
+    margin: 0;
+  }
+  &__header {
+    font-family: "avenir-bold";
+    @include header-m;
+    padding: 0 0 1rem 0;
+  }
+  &__info-title {
+    display: none;
+  }
+  &__show-date-title,
+  &__show-venue-title,
+  &__show-location-title {
+    padding: 1rem 0;
+    color: $silver;
+    font-family: "avenir-demi";
+    @include sub-header-m;
+  }
+  &__show-date-title {
+    padding-top: 1.5rem;
+  }
+  &__show-date {
+    @include sub-header-m;
+    font-family: "avenir-demi";
+  }
+  &__show-location,
+  &__show-venue {
+    @include paragraph-m;
+  }
+  &__show-location {
+    margin-bottom: 1rem;
+  }
+  &__show-button {
+    @extend button;
+    margin: 1rem 0;
+  }
+  &__show-divider {
+    border-bottom: 1px solid $mercury;
+  }
+}
+
+@include small {
+  .content {
+    padding: 3rem 1.5rem 3rem 1.5rem;
+    &__header {
+      font-size: 2rem;
+      padding-bottom: 1.5rem;
+    }
+    &__info-title {
+      display: flex;
+      flex: 1;
+      @include sub-header-m;
+      font-family: "avenir-demi";
+      color: $silver;
+      &-date {
+        flex: 0.3;
+      }
+      &-venue {
+        flex: 0.24;
+      }
+      &-location {
+        flex: 0.24;
+      }
+      &-dummie {
+        flex: 0.22;
+      }
+    }
+    &__right {
+      h3 {
+        display: none;
+      }
+      &-single {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    &-single {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__show-venue,
+    &__show-date,
+    &__show-location {
+      display: flex;
+      align-items: center;
+      flex: 0.24;
+    }
+    &__show-date {
+      flex: 0.3;
+    }
+    &__show-button {
+      flex: 0.22;
+      margin: 1rem 0;
+    }
+  }
+}
+
+@include large {
+  .content {
+    &__info-title {
+      &-date {
+        flex: 0.35;
+      }
+      &-venue,
+      &-location {
+        flex: 0.2325;
+      }
+      &-dummie {
+        flex: 0.2;
+      }
+    }
+    padding: 3rem 11.25rem;
+    display: flex;
+    flex: 1;
+    &__left {
+      flex: 0.255;
+    }
+    &__right {
+      flex: 0.745;
+      h3 {
+        display: none;
+      }
+      &-single {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    &__show-date {
+      flex: 0.35;
+    }
+    &__show-venue,
+    &__show-location {
+      flex: 0.2325;
+    }
+    &__show-button {
+      flex: 0.2;
+    }
+  }
+}
