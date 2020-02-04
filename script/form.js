@@ -1,41 +1,3 @@
-let commentArray = [];
-axios
-  .get("https://project-1-api.herokuapp.com/comments?api_key=Daniel")
-  .then(response => {
-    commentArray = response.data;
-    const form = document.querySelector(".conv__join");
-    form.addEventListener("submit", event => {
-      event.preventDefault();
-      let name = event.target.name.value;
-      let timestamp = new Date().getTime();
-      let comment = event.target.comment.value;
-
-      if (name !== "" && comment !== "") {
-        let comObj = {
-          name: name,
-          timestamp: timestamp,
-          comment: comment,
-          img: "../assets/Images/face3.png"
-        };
-        commentArray.push(comObj);
-        document.querySelector(".conv__wrapper").innerText = "";
-
-        for (object of commentArray) {
-          displayComment(object);
-        }
-        event.target.name.value = "";
-        event.target.comment.value = "";
-      } else {
-        window.alert("Please fill both name and comment");
-      }
-    });
-    for (object of commentArray) {
-      displayComment(object);
-    }
-  });
-
-//axios.post("https://project-1-api.herokuapp.com/comments?api_key=Daniel",{});
-
 function createInsertBefore(name, parent, type) {
   let child = document.createElement(type);
   child.classList.add(name);
@@ -141,15 +103,12 @@ function getDate(timestamp) {
             : (result += Math.floor(tempM) + " mins ago");
         } else {
           if (diffM > 0 && diffM < 1) {
-            diffS < 2
-              ? (result = Math.ceil(diffM) + " min ago")
-              : (result = Math.ceil(diffM) + " mins ago");
             let tempS = diffS % 1000;
             diffS < 1
               ? (result = Math.ceil(tempS) + " second ago")
               : (result = Math.ceil(tempS) + " seconds ago");
           } else {
-            diffM > 0 && diffM < 2
+            diffM > 0 && diffM < 1.99
               ? (result = Math.floor(diffM) + " min ago")
               : (result = Math.floor(diffM) + " mins ago");
           }
@@ -168,3 +127,39 @@ function displayComment(commentObject) {
   commentHtml.img.setAttribute("src", "../assets/Images/face3.png");
   printDivider();
 }
+
+let commentArray = [];
+
+function getDataPrint() {
+  axios
+    .get("https://project-1-api.herokuapp.com/comments?api_key=Daniel")
+    .then(response => {
+      commentArray = response.data;
+      for (object of commentArray) {
+        displayComment(object);
+      }
+    });
+}
+
+getDataPrint();
+const form = document.querySelector(".conv__join");
+form.addEventListener("submit", event => {
+  event.preventDefault();
+  let names = event.target.name.value;
+  let comments = event.target.comment.value;
+  if (names !== "" && comments !== "") {
+    axios
+      .post("https://project-1-api.herokuapp.com/comments?api_key=Daniel", {
+        name: names,
+        comment: comments
+      })
+      .then(reponse => {
+        document.querySelector(".conv__wrapper").innerText = "";
+        getDataPrint();
+        event.target.name.value = "";
+        event.target.comment.value = "";
+      });
+  } else {
+    window.alert("Please fill both name and comment");
+  }
+});
