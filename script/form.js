@@ -19,11 +19,13 @@ function createAppend(name, parent, type, itemId) {
         .delete(
           "https://project-1-api.herokuapp.com/comments/" +
             child.id +
-            "?api_key=Daniel1"
+            "?api_key=Daniel"
         )
         .then(response => {
-          document.querySelector(".conv__wrapper").innerText = "";
-          printData();
+          let deletedDiv = document.querySelector(".conv__comment");
+          if (deletedDiv.id === response.data.id) {
+            deletedDiv.style.display = "none";
+          }
         });
     });
   }
@@ -57,12 +59,12 @@ function structureHtml(itemId) {
     paragraphDiv,
     "p"
   );
-  let button = (createAppend(
+  createAppend(
     "conv__delete-button",
     paragraphDiv,
     "button",
     itemId
-  ).innerText = "DELETE");
+  ).innerText = "DELETE";
   let structure = {
     img: img,
     commentName: commentName,
@@ -148,7 +150,7 @@ function displayComment(commentObject) {
 
 function printData() {
   axios
-    .get("https://project-1-api.herokuapp.com/comments?api_key=Daniel1")
+    .get("https://project-1-api.herokuapp.com/comments?api_key=Daniel")
     .then(response => {
       for (object of response.data) {
         displayComment(object, response.data.id);
@@ -164,13 +166,12 @@ form.addEventListener("submit", event => {
   let comments = event.target.comment.value;
   if (names !== "" && comments !== "") {
     axios
-      .post("https://project-1-api.herokuapp.com/comments?api_key=Daniel1", {
+      .post("https://project-1-api.herokuapp.com/comments?api_key=Daniel", {
         name: names,
         comment: comments
       })
       .then(response => {
-        document.querySelector(".conv__wrapper").innerText = "";
-        printData();
+        displayComment(response.data);
         event.target.name.value = "";
         event.target.comment.value = "";
       });
