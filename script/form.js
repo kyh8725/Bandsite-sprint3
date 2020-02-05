@@ -1,28 +1,42 @@
-function createInsertBefore(name, parent, type) {
+function createInsertBefore(name, parent, type, itemId) {
   let child = document.createElement(type);
   child.classList.add(name);
+  child.id = itemId;
   let parents = document.querySelector(parent);
   parents.insertBefore(child, parents.childNodes[0]);
   return child;
 }
 
-function createAppend(name, parent, type) {
+function createAppend(name, parent, type, itemId) {
   let child = document.createElement(type);
   child.classList.add(name);
+  child.id = itemId;
   parent.appendChild(child);
+  if (name === "conv__delete-button") {
+    child.addEventListener("click", event => {
+      event.preventDefault();
+      axios
+        .delete(
+          "https://project-1-api.herokuapp.com/comments/" +
+            child.id +
+            "?api_key=Daniel1"
+        )
+        .then(response => {
+          document.querySelector(".conv__wrapper").innerText = "";
+          printData();
+        });
+    });
+  }
   return child;
 }
 
-function printDivider() {
-  let wrapper = document.querySelector(".conv__wrapper");
-  let divider = document.createElement("p");
-  divider.classList.add("conv__divider");
-  wrapper.insertBefore(divider, wrapper.childNodes[1]);
-}
-
-//make html structure for conversation section and returns structure object
-function structureHtml() {
-  let firstDiv = createInsertBefore("conv__comment", ".conv__wrapper", "div");
+function structureHtml(itemId) {
+  let firstDiv = createInsertBefore(
+    "conv__comment",
+    ".conv__wrapper",
+    "div",
+    itemId
+  );
   let secondDiv = createAppend("conv__comment-left", firstDiv, "div");
   let img = createAppend("comment-img", secondDiv, "img");
   let thirdDiv = createAppend("conv__comment-right", firstDiv, "div");
@@ -37,13 +51,18 @@ function structureHtml() {
     fourthDiv,
     "p"
   );
-  let paragraphDiv = createAppend("comment-paragraph", thirdDiv, "div");
+  let paragraphDiv = createAppend("conv__comment-paragraph", thirdDiv, "div");
   let paragraph = createAppend(
-    "conv__comment-right-top-paragraph",
+    "conv__comment-paragraph-text",
     paragraphDiv,
     "p"
   );
-
+  let button = (createAppend(
+    "conv__delete-button",
+    paragraphDiv,
+    "button",
+    itemId
+  ).innerText = "DELETE");
   let structure = {
     img: img,
     commentName: commentName,
@@ -99,8 +118,8 @@ function getDate(timestamp) {
             : (result = Math.floor(diffH) + " hours ");
           let tempM = diffM % 60;
           tempM < 2
-            ? (result += Math.floor(tempM) + " min ago")
-            : (result += Math.floor(tempM) + " mins ago");
+            ? (result += Math.ceil(tempM) + " min ago")
+            : (result += Math.ceil(tempM) + " mins ago");
         } else {
           if (diffM > 0 && diffM < 1) {
             let tempS = diffS % 1000;
@@ -109,8 +128,8 @@ function getDate(timestamp) {
               : (result = Math.ceil(tempS) + " seconds ago");
           } else {
             diffM > 0 && diffM < 1.99
-              ? (result = Math.floor(diffM) + " min ago")
-              : (result = Math.floor(diffM) + " mins ago");
+              ? (result = Math.round(diffM) + " min ago")
+              : (result = Math.round(diffM) + " mins ago");
           }
         }
       }
@@ -120,28 +139,24 @@ function getDate(timestamp) {
 }
 
 function displayComment(commentObject) {
-  let commentHtml = structureHtml();
+  let commentHtml = structureHtml(commentObject.id);
   commentHtml.commentName.innerText = commentObject.name;
   commentHtml.commentDate.innerText = getDate(commentObject.timestamp);
   commentHtml.comment.innerText = commentObject.comment;
   commentHtml.img.setAttribute("src", "../assets/Images/face3.png");
-  printDivider();
 }
 
-let commentArray = [];
-
-function getDataPrint() {
+function printData() {
   axios
-    .get("https://project-1-api.herokuapp.com/comments?api_key=Daniel")
+    .get("https://project-1-api.herokuapp.com/comments?api_key=Daniel1")
     .then(response => {
-      commentArray = response.data;
-      for (object of commentArray) {
-        displayComment(object);
+      for (object of response.data) {
+        displayComment(object, response.data.id);
       }
     });
 }
 
-getDataPrint();
+printData();
 const form = document.querySelector(".conv__join");
 form.addEventListener("submit", event => {
   event.preventDefault();
@@ -149,13 +164,13 @@ form.addEventListener("submit", event => {
   let comments = event.target.comment.value;
   if (names !== "" && comments !== "") {
     axios
-      .post("https://project-1-api.herokuapp.com/comments?api_key=Daniel", {
+      .post("https://project-1-api.herokuapp.com/comments?api_key=Daniel1", {
         name: names,
         comment: comments
       })
-      .then(reponse => {
+      .then(response => {
         document.querySelector(".conv__wrapper").innerText = "";
-        getDataPrint();
+        printData();
         event.target.name.value = "";
         event.target.comment.value = "";
       });

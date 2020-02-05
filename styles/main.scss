@@ -8,13 +8,13 @@
 @import "./_partials/contents";
 @import "./_partials/show";
 
-body{
-    font-family:'avenir';
-    box-sizing:border-box;
-    margin:0;
+body {
+  font-family: "avenir";
+  box-sizing: border-box;
+  margin: 0;
 }
 *,
-*::before, 
-*::after{
-    box-sizing: inherit;
+*::before,
+*::after {
+  box-sizing: inherit;
 }

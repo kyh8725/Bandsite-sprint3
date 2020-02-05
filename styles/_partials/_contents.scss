@@ -136,11 +136,6 @@
     margin: 0;
     padding: 0;
   }
-
-  &__divider {
-    border-bottom: 1px solid $mercury;
-    margin: 1.5rem 0;
-  }
   &__title {
     font-family: "avenir-bold";
     @include header-m;
@@ -149,7 +144,8 @@
   &__join {
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $mercury;
   }
   &__join-left {
     transform: translateY(1.2rem);
@@ -198,6 +194,8 @@
   }
   &__comment {
     display: flex;
+    border-bottom: 1px solid $mercury;
+    padding: 1.5rem 0;
   }
   &__comment-left {
     font-size: 0;
@@ -230,8 +228,23 @@
     font-size: 0.9rem;
     color: $silver;
   }
-  &__comment-right-top-paragraph {
+  &__comment-paragraph {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__comment-paragraph-text {
+    flex: 0.85;
     font-size: 0.875rem;
+  }
+  &__delete-button {
+    margin: 0;
+    padding: 0;
+    background-color: red;
+    height: 2rem;
+    width: 5rem;
+    &:hover {
+      background-color: orange;
+    }
   }
 }
 
@@ -356,9 +369,6 @@
       margin: 0;
       width: 10rem;
       float: right;
-    }
-    &__divider {
-      margin: 1.5rem 6.25rem;
     }
     &__title {
       @include header;

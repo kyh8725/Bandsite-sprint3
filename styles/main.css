@@ -545,11 +545,6 @@ a {
   padding: 0;
 }
 
-.conv__divider {
-  border-bottom: 1px solid #E1E1E1;
-  margin: 1.5rem 0;
-}
-
 .conv__title {
   font-family: "avenir-bold";
   font-size: 24px;
@@ -564,7 +559,8 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #E1E1E1;
 }
 
 .conv__join-left {
@@ -622,6 +618,8 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-bottom: 1px solid #E1E1E1;
+  padding: 1.5rem 0;
 }
 
 .conv__comment-left {
@@ -668,8 +666,32 @@ a {
   color: #AFAFAF;
 }
 
-.conv__comment-right-top-paragraph {
+.conv__comment-paragraph {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.conv__comment-paragraph-text {
+  -webkit-box-flex: 0.85;
+      -ms-flex: 0.85;
+          flex: 0.85;
   font-size: 0.875rem;
+}
+
+.conv__delete-button {
+  margin: 0;
+  padding: 0;
+  background-color: red;
+  height: 2rem;
+  width: 5rem;
+}
+
+.conv__delete-button:hover {
+  background-color: orange;
 }
 
 @media only screen and (min-width: 768px) {
@@ -805,9 +827,6 @@ a {
     margin: 0;
     width: 10rem;
     float: right;
-  }
-  .conv__divider {
-    margin: 1.5rem 6.25rem;
   }
   .conv__title {
     font-size: 36px;
@@ -1165,7 +1184,7 @@ a {
 }
 
 body {
-  font-family: 'avenir';
+  font-family: "avenir";
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
