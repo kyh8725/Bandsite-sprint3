@@ -89,10 +89,8 @@ function createAfter(name, parent, type, itemId) {
             "?api_key=Daniel"
         )
         .then(response => {
-          const deletedDiv = document.querySelector(".conv__comment");
-          if (deletedDiv.id === response.data.id) {
-            deletedDiv.style.display = "none";
-          }
+          const deletedDiv = document.getElementById(response.data.id);
+          deletedDiv.style.display = "none";
         });
     });
   }
@@ -138,7 +136,8 @@ function getDataPrint() {
         displayComment(obj);
       }
     });
-  setTimeout(getDataPrint, 900);
+  // for updating the comment time every 900ms
+  //setTimeout(getDataPrint, 900);
 }
 
 getDataPrint();
@@ -154,7 +153,7 @@ form.addEventListener("submit", event => {
         comment: comments
       })
       .then(response => {
-        displayComment(response.data);
+        getDataPrint();
         event.target.name.value = "";
         event.target.comment.value = "";
       });
