@@ -1,36 +1,36 @@
 @font-face {
-  font-family: 'avenir';
-  src: url("../../assets/_Global Font/AvenirNextProLT/Linotype - AvenirNextLTPro-Regular.otf");
+  font-family: "avenir";
+  src: url("../assets/GlobalFont/AvenirNextProLT/AvenirNextLTPro-Regular.otf");
 }
 
 @font-face {
-  font-family: 'avenir-thin';
-  src: url("../../assets/_Global Font/AvenirNextProLT/Linotype - AvenirNextLTPro-Thin.otf");
+  font-family: "avenir-thin";
+  src: url("../assets/GlobalFont/AvenirNextProLT/AvenirNextLTPro-Thin.otf");
 }
 
 @font-face {
-  font-family: 'avenir-light';
-  src: url("../../assets/_Global Font/AvenirNextProLT/Linotype - AvenirNextLTPro-Light.otf");
+  font-family: "avenir-light";
+  src: url("../assets/GlobalFont/AvenirNextProLT/AvenirNextLTPro-Light.otf");
 }
 
 @font-face {
-  font-family: 'avenir-med';
-  src: url("../../assets/_Global Font/AvenirNextProLT/Linotype - AvenirNextLTPro-Medium.otf");
+  font-family: "avenir-med";
+  src: url("../assets/GlobalFont/AvenirNextProLT/AvenirNextLTPro-Medium.otf");
 }
 
 @font-face {
-  font-family: 'avenir-demi';
-  src: url("../../assets/_Global Font/AvenirNextProLT/Linotype - AvenirNextLTPro-Demi.otf");
+  font-family: "avenir-demi";
+  src: url("../assets/GlobalFont/AvenirNextProLT/AvenirNextLTPro-Demi.otf");
 }
 
 @font-face {
-  font-family: 'avenir-bold';
-  src: url("../../assets/_Global Font/AvenirNextProLT/Linotype - AvenirNextLTPro-Bold.otf");
+  font-family: "avenir-bold";
+  src: url("../assets/GlobalFont/AvenirNextProLT/AvenirNextLTPro-Bold.otf");
 }
 
 @font-face {
-  font-family: 'avenir-bolder';
-  src: url("../../assets/_Global Font/AvenirNextProLT/Linotype - AvenirNextLTPro-Heavy.otf");
+  font-family: "avenir-bolder";
+  src: url("../assets/GlobalFont/AvenirNextProLT/AvenirNextLTPro-Heavy.otf");
 }
 
 /* media query for tablet */
@@ -57,6 +57,182 @@ button, .content__show-button {
 
 button:hover, .content__show-button:hover {
   background-color: black;
+}
+
+.hero, .hero-show {
+  background-image: url("../assets/Images/hero-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 183px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: inset 0 0 0 2000px rgba(50, 50, 50, 0.5);
+          box-shadow: inset 0 0 0 2000px rgba(50, 50, 50, 0.5);
+}
+
+.hero__text {
+  font-family: "avenir-bold";
+  margin: 0;
+  padding: 0;
+  -webkit-box-flex: 0.677;
+      -ms-flex: 0.677;
+          flex: 0.677;
+  color: #FFFFFF;
+  font-size: 24px;
+  line-height: 32px;
+  padding-left: 1rem;
+}
+
+.hero-show {
+  display: block;
+  background-image: url("../assets/Images/hero-image-neon.jpg");
+  height: 29.5rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.hero-show__text-iframe {
+  padding: 0 1rem;
+}
+
+.hero-show__iframe {
+  width: 288px;
+  height: 100px;
+  font-size: 0;
+  line-height: 0;
+}
+
+.hero-show iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.hero-show__text {
+  font-family: "avenir-bold";
+  margin: 0;
+  padding: 4rem 0;
+  color: #FFFFFF;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.hero-show__text span {
+  font-size: 1rem;
+  font-family: "avenir-demi";
+  display: block;
+  line-height: 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero, .hero-show {
+    height: 400px;
+    margin: 0;
+    padding: 0;
+    -webkit-box-shadow: inset 0 0 0 2000px rgba(50, 50, 50, 0.5);
+            box-shadow: inset 0 0 0 2000px rgba(50, 50, 50, 0.5);
+  }
+  .hero__text {
+    font-size: 3.5rem;
+    line-height: 5rem;
+    font-family: "avenir-bold";
+    margin-left: 1.5rem;
+    padding: 0;
+  }
+  .hero-show {
+    height: 670px;
+  }
+  .hero-show__text-iframe {
+    padding: 0 1.5rem;
+  }
+  .hero-show__text {
+    font-family: "avenir-bold";
+    padding: 6rem 8rem 3rem 0;
+    color: #FFFFFF;
+    font-size: 60px;
+    line-height: 68px;
+    line-height: 5rem;
+    font-size: 3.875rem;
+  }
+  .hero-show__text span {
+    font-size: 1.5rem;
+    font-family: "avenir-bold";
+    display: block;
+    line-height: 4rem;
+  }
+  .hero-show__iframe {
+    width: 436px;
+    height: 146px;
+    font-size: 0;
+    line-height: 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .hero, .hero-show {
+    height: 670px;
+  }
+  .hero__text {
+    margin: 0;
+    padding: 0;
+    -webkit-box-flex: 0.4;
+        -ms-flex: 0.4;
+            flex: 0.4;
+    font-size: 3.75rem;
+    line-height: 5rem;
+    font-family: "avenir-bold";
+    margin-left: 11.25rem;
+  }
+  .hero-show {
+    height: 670px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .hero-show__text-iframe {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    padding: 0 11.25rem;
+  }
+  .hero-show__text {
+    -webkit-box-flex: 0.57;
+        -ms-flex: 0.57;
+            flex: 0.57;
+    padding: 10rem 4rem 0 0;
+    height: 100%;
+    font-family: "avenir-bold";
+    color: #FFFFFF;
+    font-size: 3.8rem;
+    line-height: 5rem;
+  }
+  .hero-show__text span {
+    font-size: 1.5rem;
+    line-height: 4rem;
+  }
+  .hero-show__iframe {
+    height: 146px;
+    -webkit-box-flex: 0.43;
+        -ms-flex: 0.43;
+            flex: 0.43;
+    margin-bottom: 1rem;
+  }
 }
 
 a {
@@ -373,81 +549,6 @@ a {
   }
 }
 
-.hero, .hero-show {
-  background-image: url("../../assets/Images/hero-image.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 183px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-shadow: inset 0 0 0 2000px rgba(50, 50, 50, 0.5);
-          box-shadow: inset 0 0 0 2000px rgba(50, 50, 50, 0.5);
-}
-
-.hero__text {
-  font-family: "avenir-bold";
-  margin: 0;
-  padding: 0;
-  -webkit-box-flex: 0.677;
-      -ms-flex: 0.677;
-          flex: 0.677;
-  color: #FFFFFF;
-  font-size: 24px;
-  line-height: 32px;
-  padding-left: 1rem;
-}
-
-.hero-show {
-  display: block;
-  background-image: url("../../assets/Images/hero-image-neon.jpg");
-  height: 29.5rem;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-.hero-show__text-iframe {
-  padding: 0 1rem;
-}
-
-.hero-show__iframe {
-  width: 288px;
-  height: 100px;
-  font-size: 0;
-  line-height: 0;
-}
-
-.hero-show iframe {
-  width: 100%;
-  height: 100%;
-  border-radius: 5px 5px 5px 5px;
-}
-
-.hero-show__text {
-  font-family: "avenir-bold";
-  margin: 0;
-  padding: 4rem 0;
-  color: #FFFFFF;
-  font-size: 36px;
-  line-height: 44px;
-}
-
-.hero-show__text span {
-  font-size: 1rem;
-  font-family: "avenir-demi";
-  display: block;
-  line-height: 2rem;
-}
-
 .contents {
   padding: 2rem 1rem 2.5rem 1rem;
   margin: 0;
@@ -695,47 +796,6 @@ a {
 }
 
 @media only screen and (min-width: 768px) {
-  .hero, .hero-show {
-    height: 400px;
-    margin: 0;
-    padding: 0;
-    -webkit-box-shadow: inset 0 0 0 2000px rgba(50, 50, 50, 0.5);
-            box-shadow: inset 0 0 0 2000px rgba(50, 50, 50, 0.5);
-  }
-  .hero__text {
-    font-size: 3.5rem;
-    line-height: 5rem;
-    font-family: "avenir-bold";
-    margin-left: 1.5rem;
-    padding: 0;
-  }
-  .hero-show {
-    height: 670px;
-  }
-  .hero-show__text-iframe {
-    padding: 0 1.5rem;
-  }
-  .hero-show__text {
-    font-family: "avenir-bold";
-    padding: 6rem 8rem 3rem 0;
-    color: #FFFFFF;
-    font-size: 60px;
-    line-height: 68px;
-    line-height: 5rem;
-    font-size: 3.875rem;
-  }
-  .hero-show__text span {
-    font-size: 1.5rem;
-    font-family: "avenir-bold";
-    display: block;
-    line-height: 4rem;
-  }
-  .hero-show__iframe {
-    width: 436px;
-    height: 146px;
-    font-size: 0;
-    line-height: 0;
-  }
   .contents {
     padding: 2rem 1.5rem;
     margin: 0;
@@ -821,7 +881,7 @@ a {
     width: 100%;
   }
   .conv {
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 2.5rem 1.5rem;
   }
   .conv__button {
     margin: 0;
@@ -863,60 +923,6 @@ a {
 }
 
 @media only screen and (min-width: 1440px) {
-  .hero, .hero-show {
-    height: 670px;
-  }
-  .hero__text {
-    margin: 0;
-    padding: 0;
-    -webkit-box-flex: 0.4;
-        -ms-flex: 0.4;
-            flex: 0.4;
-    font-size: 3.75rem;
-    line-height: 5rem;
-    font-family: "avenir-bold";
-    margin-left: 11.25rem;
-  }
-  .hero-show {
-    height: 670px;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .hero-show__text-iframe {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    padding: 0 11.25rem;
-  }
-  .hero-show__text {
-    -webkit-box-flex: 0.57;
-        -ms-flex: 0.57;
-            flex: 0.57;
-    padding: 10rem 4rem 0 0;
-    height: 100%;
-    font-family: "avenir-bold";
-    color: #FFFFFF;
-    font-size: 3.8rem;
-    line-height: 5rem;
-  }
-  .hero-show__text span {
-    font-size: 1.5rem;
-    line-height: 4rem;
-  }
-  .hero-show__iframe {
-    height: 146px;
-    -webkit-box-flex: 0.43;
-        -ms-flex: 0.43;
-            flex: 0.43;
-    margin-bottom: 1rem;
-  }
   .contents {
     padding: 3rem 11.25rem;
   }
@@ -970,7 +976,7 @@ a {
     width: 100%;
   }
   .conv {
-    padding: 3rem 22.25rem 1rem 22.25rem;
+    padding: 3rem 22.25rem 2.5rem 22.25rem;
   }
   .conv__title {
     padding-bottom: 3.5rem;
@@ -1058,19 +1064,14 @@ a {
     color: #AFAFAF;
   }
   .content__info-title-date {
+    -webkit-box-flex: 0.18;
+        -ms-flex: 0.18;
+            flex: 0.18;
+  }
+  .content__info-title-venue, .content__info-title-location {
     -webkit-box-flex: 0.3;
         -ms-flex: 0.3;
             flex: 0.3;
-  }
-  .content__info-title-venue {
-    -webkit-box-flex: 0.24;
-        -ms-flex: 0.24;
-            flex: 0.24;
-  }
-  .content__info-title-location {
-    -webkit-box-flex: 0.24;
-        -ms-flex: 0.24;
-            flex: 0.24;
   }
   .content__info-title-dummie {
     -webkit-box-flex: 0.22;
@@ -1103,14 +1104,14 @@ a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-flex: 0.24;
-        -ms-flex: 0.24;
-            flex: 0.24;
-  }
-  .content__show-date {
     -webkit-box-flex: 0.3;
         -ms-flex: 0.3;
             flex: 0.3;
+  }
+  .content__show-date {
+    -webkit-box-flex: 0.18;
+        -ms-flex: 0.18;
+            flex: 0.18;
   }
   .content__show-button {
     -webkit-box-flex: 0.22;
@@ -1131,14 +1132,14 @@ a {
             flex: 1;
   }
   .content__info-title-date {
-    -webkit-box-flex: 0.35;
-        -ms-flex: 0.35;
-            flex: 0.35;
+    -webkit-box-flex: 0.2;
+        -ms-flex: 0.2;
+            flex: 0.2;
   }
   .content__info-title-venue, .content__info-title-location {
-    -webkit-box-flex: 0.2325;
-        -ms-flex: 0.2325;
-            flex: 0.2325;
+    -webkit-box-flex: 0.3;
+        -ms-flex: 0.3;
+            flex: 0.3;
   }
   .content__info-title-dummie {
     -webkit-box-flex: 0.2;
@@ -1167,14 +1168,14 @@ a {
             justify-content: space-between;
   }
   .content__show-date {
-    -webkit-box-flex: 0.35;
-        -ms-flex: 0.35;
-            flex: 0.35;
+    -webkit-box-flex: 0.2;
+        -ms-flex: 0.2;
+            flex: 0.2;
   }
   .content__show-venue, .content__show-location {
-    -webkit-box-flex: 0.2325;
-        -ms-flex: 0.2325;
-            flex: 0.2325;
+    -webkit-box-flex: 0.3;
+        -ms-flex: 0.3;
+            flex: 0.3;
   }
   .content__show-button {
     -webkit-box-flex: 0.2;

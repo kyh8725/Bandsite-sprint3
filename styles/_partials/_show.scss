@@ -42,6 +42,7 @@
   }
 }
 
+//tablet mode 768px wide
 @include small {
   .content {
     padding: 3rem 1.5rem 3rem 1.5rem;
@@ -56,13 +57,11 @@
       font-family: "avenir-demi";
       color: $silver;
       &-date {
-        flex: 0.3;
+        flex: 0.18;
       }
-      &-venue {
-        flex: 0.24;
-      }
+      &-venue,
       &-location {
-        flex: 0.24;
+        flex: 0.3;
       }
       &-dummie {
         flex: 0.22;
@@ -86,10 +85,10 @@
     &__show-location {
       display: flex;
       align-items: center;
-      flex: 0.24;
+      flex: 0.3;
     }
     &__show-date {
-      flex: 0.3;
+      flex: 0.18;
     }
     &__show-button {
       flex: 0.22;
@@ -98,15 +97,16 @@
   }
 }
 
+//desktop mode 1440px wide
 @include large {
   .content {
     &__info-title {
       &-date {
-        flex: 0.35;
+        flex: 0.2;
       }
       &-venue,
       &-location {
-        flex: 0.2325;
+        flex: 0.3;
       }
       &-dummie {
         flex: 0.2;
@@ -129,11 +129,11 @@
       }
     }
     &__show-date {
-      flex: 0.35;
+      flex: 0.2;
     }
     &__show-venue,
     &__show-location {
-      flex: 0.2325;
+      flex: 0.3;
     }
     &__show-button {
       flex: 0.2;
