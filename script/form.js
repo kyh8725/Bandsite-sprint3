@@ -1,3 +1,6 @@
+$url = "https://project-1-api.herokuapp.com/comments";
+$key = "?api_key=Daniel";
+
 function getDate(timestamp) {
   let currentTime = new Date().getTime();
   let diffMs = currentTime - timestamp;
@@ -7,7 +10,6 @@ function getDate(timestamp) {
   let diffD = diffMs / 86400000;
   let diffMo = diffMs / 2629800000;
   let diffY = diffMs / 31557600000;
-
   let result = "";
 
   if (diffY >= 1) {
@@ -82,16 +84,10 @@ function createAfter(name, parent, type, itemId) {
   if (name === "conv__delete-button") {
     child.addEventListener("click", event => {
       event.preventDefault();
-      axios
-        .delete(
-          "https://project-1-api.herokuapp.com/comments/" +
-            child.id +
-            "?api_key=Daniel"
-        )
-        .then(response => {
-          const deletedDiv = document.getElementById(response.data.id);
-          deletedDiv.style.display = "none";
-        });
+      axios.delete(`${$url}/${child.id}${$key}`).then(response => {
+        const deletedDiv = document.getElementById(response.data.id);
+        deletedDiv.style.display = "none";
+      });
     });
   }
   return child;
@@ -127,15 +123,13 @@ function displayComment(commentObject) {
 }
 
 function getDataPrint() {
-  axios
-    .get("https://project-1-api.herokuapp.com/comments?api_key=Daniel")
-    .then(response => {
-      const commentWrapper = document.querySelector(".conv__wrapper");
-      commentWrapper.innerHTML = "";
-      for (obj of response.data) {
-        displayComment(obj);
-      }
-    });
+  axios.get($url + $key).then(response => {
+    const commentWrapper = document.querySelector(".conv__wrapper");
+    commentWrapper.innerHTML = "";
+    for (obj of response.data) {
+      displayComment(obj);
+    }
+  });
   // for updating the comment time every 900ms
   //setTimeout(getDataPrint, 900);
 }
@@ -148,7 +142,7 @@ form.addEventListener("submit", event => {
   let comments = event.target.comment.value;
   if (names !== "" && comments !== "") {
     axios
-      .post("https://project-1-api.herokuapp.com/comments?api_key=Daniel", {
+      .post($url + $key, {
         name: names,
         comment: comments
       })

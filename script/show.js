@@ -6,13 +6,6 @@ axios
     presentShow();
   });
 
-function createAdd(name, parent, type) {
-  parent = document.querySelector(parent);
-  let child = document.createElement(type);
-  child.classList.add(name);
-  parent.appendChild(child);
-  return child;
-}
 function createAddShow(name, parent, type) {
   let child = document.createElement(type);
   child.classList.add(name);
@@ -45,6 +38,13 @@ function presentShow() {
   }
 }
 
+function createAdd(name, parent, type) {
+  parent = document.querySelector(parent);
+  let child = document.createElement(type);
+  child.classList.add(name);
+  parent.appendChild(child);
+  return child;
+}
 //structure HTML for header and info title (dates venue location).
 createAdd("content", ".main", "div");
 createAdd("content__left", ".content", "div");
